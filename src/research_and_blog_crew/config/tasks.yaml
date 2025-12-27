@@ -1,0 +1,20 @@
+report_task:
+  description: >
+    Based on the input topic : {topic}, generate a detailed report with the latest
+    facts and future trends. Make sure to include any and all relevant information
+    and insights. Formatted as markdown without '```'. The report should be
+    atleast 2000 words long.
+  expected_output: >
+    A detailed report with the latest facts and future trends on {topic}. Formatted as markdown without '```'. The report should be
+    atleast 2000 words long.
+  agent: report_generator
+
+blog_writing_task:
+  description: >
+    Based on the report on {topic}, create a well-structured and engaging blog
+    that even a layman can understand. The blog should be atleast 500 words
+    long.
+  expected_output: >
+    500 word long blog post on the topic : {topic}. The blog should be well
+    structured with a engaging title.
+  agent: blog_writer
