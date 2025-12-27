@@ -1,54 +1,100 @@
-# ResearchAndBlogCrew Crew
+# 🚀 Research & Blog Crew
 
-Welcome to the ResearchAndBlogCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![CrewAI](https://img.shields.io/badge/Powered%20by-CrewAI-orange?style=for-the-badge)
+![uv](https://img.shields.io/badge/Managed%20with-uv-purple?style=for-the-badge)
 
-## Installation
+## 📖 Overview
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+**Research & Blog Crew** is a powerful multi-agent AI system designed to automate the process of researching complex topics and generating engaging blog posts. Powered by **[CrewAI](https://crewai.com)** and **Google Gemini**, this project leverages a team of specialized AI agents to:
 
-First, if you haven't already, install uv:
+1.  **Research**: Dive deep into a given topic (e.g., "AI LLMs"), gathering the latest facts, trends, and insights.
+2.  **Writer**: Synthesize the research into a well-structured, easy-to-understand execution blog post.
+
+By orchestrating these agents, the system transforms a simple topic input into a high-quality, ready-to-publish article.
+
+## ✨ Features
+
+- **Multi-Agent Collaboration**: specialized agents for research and writing working in tandem.
+- **Gemini 1.5 Flash Integration**: Utilizes Google's fast and efficient Gemini 1.5 Flash model for high-performance generation.
+- **Automated Workflow**: From topic to blog post with a single command.
+- **Easily Extensible**: Built on CrewAI, making it simple to add new agents, tasks, or tools.
+
+## 🛠️ Prerequisites
+
+- **Python**: Version 3.10 up to 3.13.
+- **uv**: The project uses `uv` for ultra-fast dependency management.
+
+## 🚀 Installation & Setup
+
+1.  **Clone the Repository**
+
+    ```bash
+    git clone https://github.com/Sir-Sloth-The-Lazy/ResearchAndBlogWriter.git
+    cd ResearchAndBlogWriter
+    ```
+
+2.  **Install uv (if not already installed)**
+
+    ```bash
+    pip install uv
+    ```
+
+3.  **Install Dependencies**
+    Sync the project dependencies using `uv`:
+
+    ```bash
+    uv sync
+    ```
+
+4.  **Configure Environment**
+    Create a `.env` file in the root directory and add your keys:
+
+    ```bash
+    # Create .env file
+    touch .env
+    ```
+
+    Add the following content to `.env`:
+
+    ```env
+    gemini_api_key=YOUR_GOOGLE_GEMINI_API_KEY
+    MODEL=gemini/gemini-1.5-flash
+    ```
+
+    _(Note: Get your Google API key from [Google AI Studio](https://aistudio.google.com/))_
+
+## 🏃‍♂️ Usage
+
+To kick off the crew and generate your blog post, simply run:
 
 ```bash
-pip install uv
+crewai run
 ```
 
-Next, navigate to your project directory and install the dependencies:
+The system will:
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
-### Customizing
+1.  Initialize the agents.
+2.  Conduct research on the default topic ("AI LLMs").
+3.  Write a blog post based on the findings.
+4.  Save the final blog post to `blogs/blog.md`.
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+### Customization
 
-- Modify `src/research_and_blog_crew/config/agents.yaml` to define your agents
-- Modify `src/research_and_blog_crew/config/tasks.yaml` to define your tasks
-- Modify `src/research_and_blog_crew/crew.py` to add your own logic, tools and specific args
-- Modify `src/research_and_blog_crew/main.py` to add custom inputs for your agents and tasks
+Want to research a different topic?
+Modify `src/research_and_blog_crew/main.py`:
 
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
+```python
+inputs = {
+    'topic': 'Your Custom Topic Here',
+    'current_year': str(datetime.now().year)
+}
 ```
 
-This command initializes the research_and_blog_crew Crew, assembling the agents and assigning them tasks as defined in your configuration.
+## 🤝 Contributing
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Understanding Your Crew
+## 📄 License
 
-The research_and_blog_crew Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the ResearchAndBlogCrew Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
+This project is licensed under the MIT License.
