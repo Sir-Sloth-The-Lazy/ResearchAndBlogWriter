@@ -23,20 +23,29 @@
 | **Researcher** |  🕵️‍♂️  | Senior Data Researcher | Scour the web/knowledge base for the latest facts, trends, and deep insights.  |
 | **Writer**     |  ✍️  | Content Strategist     | Synthesize complex data into a readable, engaging, and professional blog post. |
 
-## 🧬 workflow
+## 📂 Project Structure
 
-```mermaid
-graph LR
-    A([User Input<br/>"Topic"]) --> B{Research Agent}
-    B -->|Searches & Analyzes| C[Detailed Report]
-    C --> D{Writer Agent}
-    D -->|Drafts & Polishes| E([Final Blog Post])
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style E fill:#9f9,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
+```text
+research_and_blog_crew/
+├── src/
+│   └── research_and_blog_crew/
+│       ├── config/
+│       │   ├── agents.yaml      # Agent definitions and behaviors
+│       │   └── tasks.yaml       # Task descriptions and expected outputs
+│       ├── tools/               # Custom tools for agents
+│       ├── crew.py              # Main CrewAI orchestration logic
+│       └── main.py              # Entry point and execution setup
+├── .env                         # Environment variables (API keys)
+├── pyproject.toml               # Project dependencies (managed by uv)
+└── README.md                    # Project documentation
 ```
+
+### 🧩 Key Files Description
+
+- **`src/research_and_blog_crew/crew.py`**: The heart of the application. It defines the `@crew`, `@agent`, and `@task` decorators that assemble the AI team.
+- **`src/research_and_blog_crew/main.py`**: The command-line interface entry point. It handles user inputs (like the topic) and kicks off the crew.
+- **`src/research_and_blog_crew/config/agents.yaml`**: A YAML configuration file where you define the persona, role, and backstory of your agents.
+- **`src/research_and_blog_crew/config/tasks.yaml`**: A YAML configuration file where you describe the specific tasks each agent must complete.
 
 ## 🛠️ Prerequisites
 
